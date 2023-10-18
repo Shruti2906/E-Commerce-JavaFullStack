@@ -1,0 +1,111 @@
+
+table to store registered user/admin details
+
+create table shopRegister
+(
+	first_Name varchar2(20);
+	last_Name varchar2(20);
+	email varchar2(25);
+	gender varchar2(10);
+	userName varchar2(20);
+	password varchar2(15);
+	registerType varchar2(10);
+);
+ 
+create table product
+(
+ PRODUCT_ID NUMBER(20) constraint shopApp_Admin_Product_id_pk primary key,
+ PRODUCT_NAME VARCHAR2(30),
+ PRODUCT_PRICE FLOAT(126),
+ PRODUCT_QTY NUMBER(20)
+);
+
+create table User_product_Cart
+(
+ PRODUCT_ID NUMBER(20),
+ PRODUCT_NAME VARCHAR2(30),
+ PRODUCT_PRICE FLOAT(126),
+ USERNAME VARCHAR2(20),
+ Constraint shopApp_Product_username_fk foreign key(USERNAME) references shopRegister(USERNAME) ON DELETE CASCADE
+);
+
+
+
+/*
+create table User_product_Cart
+(
+ PRODUCT_ID NUMBER(20),// constraint shopApp_Admin_Product_id_pk primary key,
+ PRODUCT_NAME VARCHAR2(30),
+ PRODUCT_PRICE FLOAT(126),
+ PRODUCT_QTY NUMBER(20),
+ USERNAME VARCHAR2(20),
+ Constraint shopApp_Product_username_fk foreign key(USERNAME) references shopRegister(USERNAME)
+);
+*/
+
+/*
+combined pk
+create table User_product_Cart
+(
+ PRODUCT_ID NUMBER(20),
+ PRODUCT_NAME VARCHAR2(30),
+ PRODUCT_PRICE FLOAT(126),
+ PRODUCT_QTY NUMBER(20),
+ USERNAME VARCHAR2(20),
+ constraint shopApp_Cart_iduname_pk primary key(PRODUCT_ID, USERNAME)
+);
+*,
+
+ 
+ 
+shopRegister
+(
+ FIRST_NAME VARCHAR2(20),
+ LAST_NAME VARCHAR2(20),
+ EMAIL VARCHAR2(25),
+ GENDER VARCHAR2(10),
+ USERNAME VARCHAR2(20) constraint shop_SuperAdmin_shopReg_unm_pk primary key,
+ PASSWORD VARCHAR2(15),
+ REGISTERTYPE VARCHAR2(10)
+) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ User Dashboard Structure
+ -------------------------------------------------------------------------------------------------
+ UserDashboard   											 	
+ 							Welcome to user portal
+ 			
+user servies
+
+view products list
+search product
+view cart
+
+-----------------------------------------------------------------------------------------------------
+user profile
+
+view details
+update
+delete own profile/account
+ ==================================================================================================
+ 
+ cart.jsp
+ 
+ 
+ list of products added to cart with quantity 
+ remove any of the product
+ empty cart
+ 
+ proceed to payment/get bill
+ 
+ 
+ 
+ 
